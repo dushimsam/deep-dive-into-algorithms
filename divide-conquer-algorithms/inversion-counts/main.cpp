@@ -23,7 +23,6 @@ int merge(int arr[], int temp[], int left, int mid, int right) {
     }
 
     // Since in the above loop we used the & operation , one of the two sub-arrays might now have been visited.
-
     // Copy the remaining elements in the left sub-array into the array.
 
     while ((i <= (mid - 1)))
@@ -62,12 +61,12 @@ int mergeSort(int arr[], int size) {
     return inv_counts;
 }
 
-int main() {
-    int inputArray[] = {8, 4, 2, 1};
-    int arrLen = sizeof(inputArray) / sizeof(inputArray[0]);
-    cout << "Inversion counts " << mergeSort(inputArray, arrLen);
-    cout << "\nSorted array " << "\n";
-    for (int i = 0; i < arrLen; i++)
-        cout << inputArray[i];
-    return 0;
-}
+//int main() {
+//    int inputArray[] = {8, 4, 2, 1};
+//    int arrLen = sizeof(inputArray) / sizeof(inputArray[0]);
+//    cout << "Inversion counts " << mergeSort(inputArray, arrLen);
+//    cout << "\nSorted array " << "\n";
+//    for (int i = 0; i < arrLen; i++)
+//        cout << inputArray[i];
+//    return 0;
+//}
