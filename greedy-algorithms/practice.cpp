@@ -1,64 +1,57 @@
-#include <iostream>
-#include <vector>
+#include<bits/stdc++.h>
 using namespace std;
 
-int minimum_product_subset(vector<int> arr, int n) {
-    if (n == 0)
-        return 0;
 
-    if (n == 1)
-        return arr[0];
 
-    int global_negative_min = INT_MAX;
-    int global_positive_min = INT_MAX;
-    int positives = 0;
-    int negatives = 0;
-    int contains_zero = 0;
-    int product = 1;
+class DSU {
+    int* arr;
+    int* size;
+    int n;
+public:
+    DSU(int n) {
+        // NOTICE THAT INDEXES ARE CONSIDERED AS THE ACTUAL ELEMENT AND THE VALUE AT A SPECIFIC INDEX IS CONSIDERED AS THE PARENT OF THAT ELEMENT
+        // THE MOST ROOT OF THE TREE THE VALUE AT IT'S INDEX IS IT'SELF
 
-    for (int i = 0;i < n;i++) {
-
-        if (arr[i] < 0)
-        {
-            negatives++;
-            global_negative_min = min(abs(arr[i]),global_negative_min);
-        }
-        else if (arr[i] > 0) {
-            positives++;
-            global_positive_min = min(global_positive_min,arr[i]);
-        }
-
-        if (arr[i] == 0)
-            contains_zero = 1;
-        else {
-            product *= arr[i];
+        for (int i = 0;i < n;i++) {
+            // initially all elements point to them selves
+            arr[i] = i;
+            // size is 1 ofcourse because they are not assigned any other element instead themselves.
+            size[i] = 1;
         }
     }
 
-    if(!(negatives & 1) && negatives > 0)
-    {
-          product /= -global_negative_min;
+    int find_root(int i){
+        if(i == arr[i])
+           return i;
+        return find_root(arr[arr[i]]);
     }
 
-     if(negatives ==0 && positives >0 && !contains_zero)
-       product = global_positive_min;
+    int belongs_to_same_parent(int x,int y){
+        if(find_root(x) == find_root(y))
+           return true;
+        else 
+           return false;
+    }
 
-      if(negatives == 0 && positives > 0 && contains_zero)
-        product = 0;
+    int unite(int x,int y){
+         int root_x = find(x);
+         int root_y = find(y);
 
-    if(!negatives && !positives && contains_zero)
-        product = 0;
-
-        return product;
+         if(size[root_x] > size[root_y])
+         {   size[root_x] += size[root_y];
+           
+         }else{
+              size[root_y] += size[root_x];
+         }
+    }
 }
 
-int main()
-{
-   vector<int> parent_vect ={ 1 , 2,-4,-5};
 
-    cout << minimum_product_subset(parent_vect, parent_vect.size());
-    return 0;
-
-
+int main() {
+    DSU dsu(10);
+    // dsu.unite(4, 3);
+    // dsu.unite(8, 0);
+    // cout << "result "<<dsu.are_connected(3, 8);
+    cout << "FINDING ROOT " << dsu.root(0);
     return 0;
 }
