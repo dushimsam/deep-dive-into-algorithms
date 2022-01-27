@@ -25,7 +25,7 @@ class TaskScheduler {
          int j=0;
 
          for(int i = 0; i < tasks.size(); i++){
-                  if(tasks[j].starting_time >= tasks[i].ending_time){
+                  if(tasks[i].starting_time >= tasks[j].ending_time){
                       j=i;
                       scheduled_tasks.push_back(tasks[i]);
                   }
@@ -41,7 +41,7 @@ class TaskScheduler {
 
 
 int main(){
-      vector<Task> all_tasks={{'A',1,3},{'B',2,5},{'C',3,9},{'D',6,8}};
+      vector<Task> all_tasks={{'C',4,9},{'B',2,5},{'A',1,3},{'D',6,8}};
       TaskScheduler scheduler(all_tasks);
       scheduler.schedule_tasks();
       scheduler.printScheduledTasks();
