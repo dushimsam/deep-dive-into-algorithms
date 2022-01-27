@@ -1,109 +1,67 @@
-#include <iostream>
-#include <bits/stdc++.h>
-
+#include<bits/stdc++.h>
 using namespace std;
-class DSU{
-    int* parent;
-    int* rank;
-    
+
+class Dsu {
+    int* root;
 public:
-     DSU(int n){
-    parent = new int[n];
-    rank = new int[n];
-    memset(parent,-1,sizeof(int) * n);
-    memset(rank,1,sizeof(int) * n);
+    Dsu(int n) {
+        root = new int[n];
+        for (int i = 0;i < n;i++)
+            root[i] = i;
     }
 
-    void Union(int x,int y){
-    parent[x] = y;
+    int parent(int i) {
+        if (i == root[i])
+            return i;
+        return parent(root[root[i]]);
     }
 
-    int find(int i){
-        if(parent[i] == -1)
-           return i;
-         parent[i] = find(parent[i]);
-    }
-
-    void unite(int v1,int v2){
-       int x = find(v1);
-       int y = find(v2);
-
-       if(x != y){
-           if(rank[x] < rank[y]){
-              Union(x,y);
-              rank[y]+= rank[x];
-           }else{
-              Union(y,x);
-              rank[x]+= rank[y];
-           }
-       }
+    void union_find(int x, int y) {
+        int parent_x = parent(x);
+        int parent_y = parent(y);
+        root[parent_x] = root[parent_y];
     }
 };
 
-
-class Graph
-{
-   int V;
-   vector<vector<int>> edgelist;
+class Graph {
+    vector<pair<int, pair<int, int>>> p;
 
 public:
-    
-    Graph(int V){
-      this->V = V;
-  } 
 
-   void addEdge(int w, int x,int y){
-       edgelist.push_back({w,x,y});
-   }
 
-   void traverse(){
-       for(auto item:edgelist){
-           cout<<"weight "<<item[0]<<" , x "<<item[1]<<" ,y "<<item[2]<<"\n";
-       }
-   }
+    void addEdge(int x, int y, int w) {
+        p.push_back(make_pair(w, make_pair(x, y)));
+    };
 
-   int kruskals_mst(){
-       //STEP 1: Sorting the edges
-       sort(edgelist.begin(),edgelist.end());
-      // Create array resembling our graph for easy union-find
-        DSU dsu(V);
+    int kruskals() {
+        sort(p.begin(), p.end());
 
-       //Iterate through all edges
-        int ans =0;
-        for(auto item:edgelist){
-            int w = item[0];
-            int x = item[1];
-            int y = item[2];
+        int total_costs = 0;
+        int a,b;
+        Dsu dsu(p.size());
 
-           // CHECK CYCLE IN THE EDGES 
-
-            if(dsu.find(x) != dsu.find(y))
-              {
-                 // IF ON THEN START UNITE THE EDGES
-                 dsu.unite(x,y);
-                 ans += w;
-              }
+        for (int i = 0;i < p.size();i++) {
+               a = p[i].second.first;
+               b = p[i].second.second;
+            if (dsu.parent(a) != dsu.parent(b))
+            {            
+                int cost = p[i].first;
+                total_costs += cost;
+                dsu.union_find(a,b);
+            }
         }
-     return ans;
-   }
+          return total_costs;
+    }
 };
 
 
- int main()
-{
-    Graph g(4);
-    g.addEdge(0, 1, 1);
-    g.addEdge(1, 3, 3);
-    g.addEdge(3, 2, 4);
-    g.addEdge(2, 0, 2);
-    g.addEdge(0, 3, 2);
-    g.addEdge(1, 2, 2);
-   cout <<"Answer "<< g.kruskals_mst();
-
-}
-
-//// TIME COMPLEXITY 
-// sorting - O(ElogE)
-// union ,find - O(logV)
-//Overall time complexity O(ElogE + ElogV)
-// Which is O(ElogE) or O(ElogV)
+    int main() {
+        Graph graph;
+        graph.addEdge(0, 1, 10);
+        graph.addEdge(1, 2, 18);
+        graph.addEdge(2, 3, 13);
+        graph.addEdge(0, 2, 21);
+        graph.addEdge(1, 3, 22);
+        cout<<"\n\n\n Total costs "<< graph.kruskals();
+        return 0;
+    }
