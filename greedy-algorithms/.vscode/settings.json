@@ -5,7 +5,14 @@
         "string_view": "cpp",
         "variant": "cpp",
         "valarray": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "sstream": "cpp",
+        "regex": "cpp",
+        "ratio": "cpp",
+        "new": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "limits": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }

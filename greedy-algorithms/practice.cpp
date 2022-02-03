@@ -1,62 +1,99 @@
-// program in c++ to use priority_queue with class
 #include <iostream>
+#include <vector>
 #include <queue>
+#include <string>
+
 using namespace std;
 
-#define ROW 5
-#define COL 2
+class Huffman_Codes
+{
+	struct New_Node
+	{
+		char data;
+		size_t freq;
+		New_Node* left;
+		New_Node* right;
 
-struct Person {
+		New_Node(char data, size_t freq) : data(data),
+			freq(freq),
+			left(NULL),
+			right(NULL)
+		{}
+		~New_Node()
+		{
+			delete left;
+			delete right;
+		}
+	};
+
+	struct compare
+	{
+		bool operator()(New_Node* l, New_Node* r)
+		{
+			return (l->freq > r->freq);
+		}
+	};
+
+	New_Node* top;
+
+	void print_Code(New_Node* root, string str)
+	{
+		if (root == NULL)
+			return;
+
+		if (root->data != '$')
+		{
+			cout << root->data << " : " << str << "\n";
+		}
+
+		print_Code(root->left, str + "0");
+		print_Code(root->right, str + "1");
+	}
 
 public:
-	int age;
+	Huffman_Codes() {};
+	~Huffman_Codes()
+	{
+		delete top;
+	}
+	void Generate_Huffman_tree(vector<char>& data, vector<size_t>& freq, size_t size)
+	{
+		New_Node* left;
+		New_Node* right;
+		priority_queue<New_Node*, vector<New_Node*>, compare > minHeap;
 
-	float height;
+		for (size_t i = 0; i < size; ++i)
+		{
+			minHeap.push(new New_Node(data[i], freq[i]));
+		}
 
-	// // this is used to initialize the variables of the class
-	// Person(int age, float height)
-	// 	: age(age), height(height)
-	// {
-	// }
+		while (minHeap.size() != 1)
+		{
+			left = minHeap.top();
+			minHeap.pop();
+
+			right = minHeap.top();
+			minHeap.pop();
+
+			top = new New_Node('$', left->freq + right->freq);
+			top->left = left;
+			top->right = right;
+			minHeap.push(top);
+		}
+		print_Code(minHeap.top(), "");
+	}
 };
-
-// we are doing operator overloading through this
-bool operator<(const Person& p1, const Person& p2)
-{
-
-	// this will return true when second person
-	// has greater height. Suppose we have p1.height=5
-	// and p2.height=5.5 then the object which
-	// have max height will be at the top(or
-	// max priority)
-	return p1.height < p2.height;
-}
 
 int main()
 {
+	int n, f;
+	char ch;
+	Huffman_Codes set1;
+	vector<char> data = { 'a', 'b', 'c', 'd', 'e', 'f' };
+	vector<size_t> freq = { 5, 9, 12, 13, 16, 45 };
 
-	priority_queue<Person> q;
+	size_t size = data.size();
+	set1.Generate_Huffman_tree(data, freq, size);
 
-	float arr[ROW][COL] = { { 30, 5.5 }, { 25, 5 },
-			{ 20, 6 }, { 33, 6.1 }, { 23, 5.6 } };
-
-	// for (int i = 0; i < ROW; ++i) {
-         Person newPerson;
-         newPerson.age = arr[0][0];
-         newPerson.height = arr[0][1];
-		q.push(newPerson);
-
-		// insert an object in priority_queue by using
-		// the Person class constructor
-	// }
-
-	while (!q.empty()) {
-
-		Person p = q.top();
-
-		q.pop();
-
-		cout << p.age << " " << p.height << "\n";
-	}
 	return 0;
 }
