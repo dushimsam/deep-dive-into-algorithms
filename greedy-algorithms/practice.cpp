@@ -86,14 +86,10 @@ public:
 
 int main()
 {
-	int n, f;
-	char ch;
-	Huffman_Codes set1;
-	vector<char> data = { 'a', 'b', 'c', 'd', 'e', 'f' };
-	vector<size_t> freq = { 5, 9, 12, 13, 16, 45 };
-
-	size_t size = data.size();
-	set1.Generate_Huffman_tree(data, freq, size);
+  vector<int> arr ={4,5,6,7,8};
+  arr.erase(arr.begin(),arr.begin()+1);
+  for(int i = 0; i < arr.size(); ++i)
+     cout<<"\n"<<arr[i]<<endl;
 
 	return 0;
 }
