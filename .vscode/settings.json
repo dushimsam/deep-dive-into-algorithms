@@ -3,6 +3,7 @@
         "sstream": "cpp",
         "regex": "cpp",
         "vector": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "string_view": "cpp"
     }
 }

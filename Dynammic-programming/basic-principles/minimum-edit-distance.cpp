@@ -36,20 +36,13 @@ int count_minimum_edit_distance(string a, string b) {
         }
     }
 
-    // for (int i = 0;i <= a.length();i++) {
-    //     for (int j = 0;j <= b.length();j++) {
-    //         cout << dp_matrix[i][j] << " ";
-    //     }
-    //     cout << endl;
-    // }
-
     return dp_matrix[a.length()][b.length()];
 }
 
 int main() {
 
-    string a = "abceg";
-    string b = "abcfg";
+    string a = "leetcode";
+    string b = "coats";
 
     cout << count_minimum_edit_distance(a, b);
     return 0;

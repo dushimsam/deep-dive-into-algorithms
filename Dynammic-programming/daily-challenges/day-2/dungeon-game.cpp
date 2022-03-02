@@ -33,6 +33,7 @@ int calculateMinHp(vector<vector<int>> d)
 
     for (int i = rows - 2; i >= 0; i++)
     {
+        
     }
 }
 int main()

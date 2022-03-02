@@ -40,8 +40,8 @@ int largetCommonSubsequence(string a, string b) {
 
 int main() {
 
-string a = "abaaba";
-string b = "babbab";
+string a = "abcdxyz";
+string b = "xyzabcd";
 cout<<largetCommonSubsequence(a,b);
 
     return 0;

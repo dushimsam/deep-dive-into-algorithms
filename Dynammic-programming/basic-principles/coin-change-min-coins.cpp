@@ -10,43 +10,43 @@ using namespace std;
  *
 ***/
 
-int minimum_coins(vector<int> coins, int target) {
-    int dp_matrix[coins.size() + 1][target + 1];
+int coinChange(vector < int > & coins, int amount) {
+	int rows = coins.size()+1;
+	int cols = amount + 1;
 
-    for (int i = 0;i <= coins.size();i++) {
-        dp_matrix[i][0] = 0;
-    }
-    for (int j = 0;j <= target;j++) {
-        dp_matrix[0][j] = j;
-    }
+ vector<vector<int>> dp_matrix(rows,vector<int>(cols));
+ // Fill the first row with negative -1's except for the first cell.
+ dp_matrix[0][0] = 0;
+ 
+ for(int i=1;i<cols;i++) dp_matrix[0][i] = -1;
+
+ // fill the first column with just zeros.
+ for(int i=1;i<rows;i++) dp_matrix[i][0] = 0;
 
 
+ for(int i =1;i<rows;i++){
+	 for(int j=1;j<cols;j++){
+		 if(coins[i-1] > j) dp_matrix[i][j] = dp_matrix[i-1][j];
+		 else{
+			 int sub_res = dp_matrix[i][j-coins[i-1]];
+			 int prev = dp_matrix[i-1][j];
 
-    for (int i = 1;i <= coins.size();i++) {
-        for (int j = 1;j <= target;j++) {
-            int prev = dp_matrix[i - 1][j];
+			 if(sub_res != -1 && prev != -1){
+                    dp_matrix[i][j] = min(sub_res+1,prev);
+			 }else if(sub_res == -1) dp_matrix[i][j] = prev;
+		   	else if(prev == -1) dp_matrix[i][j] = 1 + sub_res;
+		 } 
+	 }
+ }
 
-            if (coins[i - 1] > j)
-                dp_matrix[i][j] = prev;
-            else
-                dp_matrix[i][j] = min(prev, 1 + dp_matrix[i][j - coins[i - 1]]);
-        }
-    }
-
-    // for (int i = 0;i < coins.size();i++) {
-    //     for (int j = 0;j < target;j++) {
-    //         cout << dp_matrix[i][j] << " ";
-    //     }
-    //     cout << endl;
-    // }
-
-    return dp_matrix[coins.size()][target];
+ return dp_matrix[rows-1][cols-1];
 }
+
 int main() {
 
-    vector<int> coins = { 186,419,83,408};
-    int target = 6249;
-    cout << minimum_coins(coins, target);
+    vector<int> coins = { 1,4,9};
+    int target = 13;
+    cout << coinChange(coins, target);
 
     return 0;
 }
