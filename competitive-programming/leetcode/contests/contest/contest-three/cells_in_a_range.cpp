@@ -2,16 +2,6 @@
 using namespace std;
 
 
-int extractMaxRow(string input){
-    int max_Row =1;
-    int foundDot = false;
-    for(int i=0;i<input.length();i++){
-       if(isdigit(input[i])) max_Row = max(max_Row,(int)input[i]);
-    }
-    return max_Row;
-}
-
-
 vector<string> extractCells(string input){
     vector<string> start_cells;
     string str1;
@@ -34,13 +24,13 @@ int giveStartIndex(vector<char> possibles_rows,char target){
     return 0;
 }
 
-int extractStartRow(string input){
+int extractRowNumber(string input){
     int start_row = 1;
     string number;
     for(int i=0;i<input.length();i++){
         if(isdigit(input[i])) number.push_back(input[i]);
     }
-    
+
     start_row = stoi(number);
     return start_row;
 }
@@ -48,10 +38,11 @@ int extractStartRow(string input){
 vector<string>  cellsInRange(string input){
     vector<char> possibles_cols={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
     vector<string> range = extractCells(input);
-    int maxRows = extractMaxRow(input);
-    int startRow = extractStartRow(input);
+    int maxRows = max(extractRowNumber(range[0]),extractRowNumber(range[1]));
+    int startRow = extractRowNumber(range[0]);
 
     vector<string> cells_in_range;
+
 
     for(int i= giveStartIndex(possibles_cols,range[0][0]);i<possibles_cols.size();i++){
         
