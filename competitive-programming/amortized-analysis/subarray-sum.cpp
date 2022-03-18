@@ -18,20 +18,20 @@ and we want to find a subarray whose sum is x
  * ***/
 
 vector<int> findSubarray(vector<int> arr, int target) {
-    int sum = 0;
+    int sum = arr[0];
     int left_pointer = 0;
-    int right_pointer = 0;
+    int right_pointer = 1;
 
     while (right_pointer < arr.size()) {
 
-        if (sum > target && left_pointer < arr.size()) {
+        if (sum > target && left_pointer < right_pointer) {
             sum -= arr[left_pointer];
             left_pointer++;
         }
         if (sum == target) {
             return { left_pointer , right_pointer-1 };
         }
-
+        
         sum += arr[right_pointer];
         right_pointer++;
     }
