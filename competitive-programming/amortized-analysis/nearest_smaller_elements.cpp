@@ -25,7 +25,7 @@ Output:        {_, 1, _, 0, 2}
  * 2. for(i through arr.size())
  *        while(!stack.isEmpty() && stack.top() >= arr[i]) stack.pop()
  * 3.     if(stack.IsEmpty()) cout<<"_"
- * 4.     else if(stack.top() < arr[i]) cout<<stack.top(); 
+ * 4.     else  cout<<stack.top(); 
  * 5.     stack.push(arr[i]);
 ***/
 

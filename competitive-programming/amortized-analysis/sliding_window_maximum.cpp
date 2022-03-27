@@ -22,7 +22,7 @@ Window position                Max
  *
  *
 ***/
-/// TIME COMPLEXITY IS VERY LOW.
+/// TIME COMPLEXITY IS VERY HIGH.
 int findMaximum(queue<int> queue_elements) {
     queue<int> q = queue_elements;
     int maxElem = q.front();
@@ -71,11 +71,14 @@ vector<int> slidingWindow(vector<int> elements, int windowSize) {
  *        if(i >= k-1 ) results.push(deque.front())
  *  
  *    return results;
+ * 
+ *          CONSTRAINTS
+ * 1. The stack element are mantained to be decreasing order.
 ***/
 
 
 vector<int> slidingWindowOptimized(vector<int> arr, int windowSize) {
-     vector<int> results;
+       vector<int> results;
       deque<int> deque_elements;
 
      for(int i=0;i<arr.size();i++){
