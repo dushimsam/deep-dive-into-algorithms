@@ -19,7 +19,7 @@ Click on a header to move to a referenced location.
 Getting into data structures and algorithms can be so tough for the first time. You may wonder where you can start.
 I have included some basic problems you need to know to get mastery of these approaches.
 The toughest technique i can point out in all of the approaches is **dynammic programming**.
-I have tried to look into this approach particulary more further by solving the common problems about it from arranged from the leetcode website. 
+I have tried to look into this approach particulary more further by solving the common problems about it sorted out from the leetcode website. 
 You may find them in a series of daily challenges .
 
 #### Technologies
