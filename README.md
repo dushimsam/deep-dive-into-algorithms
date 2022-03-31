@@ -2,13 +2,13 @@
 
 ![Project Image](https://www.naukri.com/learning/articles/wp-content/uploads/sites/11/2020/05/2167870_21e8.jpg)
 
-> This respository consists of different tutorials and challenges which will equip to  
-> kick off interview problems and competitive programming challenges.
+> This respository consists of different tutorials and challenges which will equip you to  
+> kicking off interview problems and competitive programming challenges.
 
 ---
 
 ### Table of Contents
-You're sections headers will be used to reference location of destination.
+Click on a header to move to a referenced location. 
 
 - [Description](#description)
 - [Author Info](#author-info)
@@ -17,13 +17,14 @@ You're sections headers will be used to reference location of destination.
 
 ## Description
 Getting into data structures and algorithms can be so tough for the first time. You may wonder where you can start.
-I have organized basic problems you need to know to get mastery of these approaches.
-The toughest techniques i can point out in all of the approaches is **dynammic programming**.
-I have tried to look into this approach more further by solving it's common problems from the leetcode
-in daily challenges.
+I have included some basic problems you need to know to get mastery of these approaches.
+The toughest technique i can point out in all of the approaches is **dynammic programming**.
+I have tried to look into this approach particulary more further by solving the common problems about it from arranged from the leetcode website. 
+You may find them in a series of daily challenges .
 
 #### Technologies
-- C++ ( The most preferrable language in the implementation of data structures and algorithms due to it's execution speed).
+- C++ (I preffered to use this language due to the size of it's community in competitive programming and it's exceptional execution speed
+compared to other languages such as Java and Python ).
 
 [Back To The Top](#read-me-template)
 
