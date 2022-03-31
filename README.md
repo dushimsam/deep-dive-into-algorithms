@@ -24,7 +24,7 @@ You may find them in a series of daily challenges .
 
 #### Technologies
 - C++ (I preffered  using this language due to the size of it's community in competitive programming and it's exceptional execution speed
-compared to other languages such as Java and Python ).
+compared to other languages like Java and Python ).
 
 [Back To The Top](#read-me-template)
 
