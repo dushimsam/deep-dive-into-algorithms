@@ -8,7 +8,7 @@ using namespace std;
  * 3. if(coins[i] > j ) a[i][j] = a[i-1][j]  else a[i][j] = a[i-1][j]  + a[i][j - coins[i]]
  *
 ***/
-int possible(vector<int> coins, int target) {
+int possibleWays(vector<int> coins, int target) {
     int dp_matrix[coins.size() + 1][target + 1];
 
     for (int i = 0;i <= coins.size();i++)
@@ -33,6 +33,6 @@ return dp_matrix[coins.size()][target];
 int main() {
     vector<int> coins = { 2,3,5,10 };
     int target = 13;
-    cout << possible(coins, target);
+    cout << possibleWays(coins, target);
     return 0;
 }

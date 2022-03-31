@@ -78,7 +78,7 @@ vector<int> slidingWindow(vector<int> elements, int windowSize) {
 
 
 vector<int> slidingWindowOptimized(vector<int> arr, int windowSize) {
-       vector<int> results;
+      vector<int> results;
       deque<int> deque_elements;
 
      for(int i=0;i<arr.size();i++){
