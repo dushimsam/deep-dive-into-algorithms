@@ -2,8 +2,8 @@
 
 ![Project Image](https://www.naukri.com/learning/articles/wp-content/uploads/sites/11/2020/05/2167870_21e8.jpg)
 
-> This respository consists of different tutorials and challenges which will equip you for 
-> kicking off interview problems and competitive programming challenges.
+> This respository consists of different tutorials and challenges which will equip to  
+> kick off interview problems and competitive programming challenges.
 
 ---
 
