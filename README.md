@@ -1,4 +1,4 @@
-# DIVE DEEP IN ALGORITHMS AND DATASTRUCTURES
+# DIVE DEEP INTO ALGORITHMS AND DATA-STRUCTURES
 
 ![Project Image](https://www.naukri.com/learning/articles/wp-content/uploads/sites/11/2020/05/2167870_21e8.jpg)
 
