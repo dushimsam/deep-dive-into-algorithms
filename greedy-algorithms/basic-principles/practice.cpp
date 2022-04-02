@@ -58,5 +58,10 @@ int numberOfPathsToExit(int n, int m, int startCol, int startRow, int maxMoves) 
     return res;
 }
 int main() {
-
+   set<int> s;
+   s.insert(10);
+   s.insert(20);
+   s.insert(30);
+   cout<<s.size();
+   return 0;
 }
