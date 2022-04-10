@@ -9,8 +9,8 @@
 6. What are the two most significant properties of a bipartile 
    graph ?
 7. When do we say the graph to be simple ?
-8. What will be the difference in in creating directed and undirected
-9. graph using adjency list.
+8. What will be the difference in in creating directed and undirected graph using adjency list.
+
 10. What is the drawback of graph matrix representation over 
 using adjency list.
 
@@ -19,3 +19,34 @@ using adjency list.
 1. Differentiate  Depth-first search from Breadth-first search works ?
 2. Mention the time complexity of Depth-first search and Breadth-first search.
 3. Which datastructure is used to implement the Breadth-first search ?
+
+                 iii. SHORTEST-PATHS
+
+1. When do we prefer using Bellman-Ford Algorithm over Dijstrals Algorith ?
+2. When is the case where the Bellman-Ford Algorithm can't work ?
+3. On which iteration do we check if Bellman-Ford Algorithm doesn't work (NEGATIVE CYCLE DETECTION) ?
+4. What is the benefit using Floyd-Warshall Algorithm over using (Djistral and Bellsman ) algorithm ?
+5. What is the time complexity of Floyd-Warshall algorithm ?
+6. On which case  Floyd-Warshall algorithm doesn't guarantee the correct result ?
+
+                  iv. TREES
+
+1. What happens if we remove one edge to a tree ?
+2. What is a tree with relation to a graph ?
+3. What is the leaves of a tree ?
+4.Describe the parent of nodes 
+5. What do we call a diameter of a tree ?
+                 v. BINARY TREE
+
+6. What is a binary tree ?
+7. Differentiate Inorder , Pre-order and Post-Order tree traversal ?
+8. a) If we are certain about the Pre-order and in-order of the tree we derive it ?
+construct the tree given the pre-order= [1,2,4,5,6,3,7] and in-order = [4,2,6,5,1,3,7].
+   b) What are going to be the use of pre-order and in-order  each when trying to construct a tree from their values ?
+
+                 Vi. SPANNING TREES
+
+1. Explain the steps of converting a graph into Minimum  Spanning tree ?
+2. Between Kruskal's and prim's algorithm for finding the minimum spanning tree
+which one would you prefer using ?
+3. What is the shared time complexity of Kruskal's and prim's algorithm ?
