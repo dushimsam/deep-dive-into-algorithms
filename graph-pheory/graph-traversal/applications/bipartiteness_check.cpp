@@ -1,6 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/***
+ *  Visit all the nodes assigning them colors
+ *  if the two nodes are visited and they share colors
+ *  then  immediately conclude bipartiness to be false.
+ * 
+***/
 class Graph
 {
     vector<bool> visited;

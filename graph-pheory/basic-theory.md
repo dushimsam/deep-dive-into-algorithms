@@ -33,6 +33,9 @@ B. PRACTICAL
 4. What is the benefit using Floyd-Warshall Algorithm over using (Djistral and Bellsman ) algorithm ?
 5. What is the time complexity of Floyd-Warshall algorithm ?
 6. On which case  Floyd-Warshall algorithm doesn't guarantee the correct result ?
+7. Do you think Bellman-Ford Algorithm can work in undirected graph ?
+8. Which graph representation do we prefer using when implementing Dijistral or Bellman-Ford algorithm ?
+
 
                   iv. TREES
 

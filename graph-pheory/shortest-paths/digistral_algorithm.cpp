@@ -46,27 +46,17 @@ public:
 
     void findShortestPath()
     {
-        for (int i = 1; i <= N; i++)
+        for (int j = 0; j < edge_list.size(); j++)
         {
-            for (int j = 0; j < edge_list.size(); j++)
-            {
-                int src = get<0>(edge_list[j]);
-                int dest = get<1>(edge_list[j]);
-                int weight = get<2>(edge_list[j]);
-                
-                // applying relaxing formula
-                int newDist = DIST[src] + weight;
+            int src = get<0>(edge_list[j]);
+            int dest = get<1>(edge_list[j]);
+            int weight = get<2>(edge_list[j]);
+            
+            // applying relaxing formula
+            int newDist = DIST[src] + weight;
 
-                if (i != N && newDist < DIST[dest])
-                    DIST[dest] = newDist;
-
-                // CHECK FOR THE NEGATIVE CYCLES
-                else if (i == N && newDist < DIST[dest])
-                {
-                    cout << "THIS GRAPH HAS NEGATIVE CYCLE ";
-                    return;
-                }
-            }
+            if (newDist < DIST[dest])
+                DIST[dest] = newDist;
         }
         printDist();
     }
@@ -84,11 +74,13 @@ public:
 
 int main()
 {
+
     int N = 5;
     Graph graph(N);
     vector<vector<int>> edges = {{0, 1, -1}, {0, 2, 4}, {1, 2, 3}, {1, 3, 2}, {1, 4, 2}, {3, 2, 5}, {3, 1, 1}, {4, 3, -3}};
     for (int i = 0; i < edges.size(); i++)
         graph.addEge(edges[i][0], edges[i][1], edges[i][2]);
     graph.findShortestPath();
+
     return 0;
 }
