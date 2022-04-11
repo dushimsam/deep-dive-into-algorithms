@@ -24,6 +24,11 @@ A. THEORY
 
 B. PRACTICAL 
 1. CHECK CYCLES IN A GRAPH.
+2. Implement Digistral's algorithm.
+
+C. PRACTICAL LESSONS TO CONSIDER 
+1. Don't use INT_MAX when initializing the Floyd matrix.
+instead use INF.
 
                  iii. SHORTEST-PATHS
 

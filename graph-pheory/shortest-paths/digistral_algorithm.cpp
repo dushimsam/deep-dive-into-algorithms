@@ -2,28 +2,14 @@
 using namespace std;
 
 /***
- *     1. CREATE THE ADJENCY LIST OF ALL EDJES , DIST[]
- *     2. LET THE DIST[0] = 0
- *     3.
- *     ITERATE FROM 1 TO  (VERTICES - 1)  // TO VERTICES-1 since the last iteration should be reserved for negative cycle checking.
- *       ITERATE THROUGH
- *          EXTRACT FROM CURRENT EDGE
- *            SRC = CURR_EDGE.SRC
- *            DEST = CURR_EDGE.DEST
- *            WEIGHT = CURR_EDGE.WEIGHT
  *
- *            // RELAXING FORMULA
- *            if(DIST[SRC] != INFINITY && DIST[SRC] + WEIGHT < DIST[DEST])
- *                  DIST[DEST] = DIST[SRC] + WEIGHT
- *
- *    4. CHECK FOR NEGATIVE CYCLE
- *
- *
- *  NOTE DOWN :
- *   1. We prefer edge list when working with bellman or dijistral algorithm// Because it will help us to iterate all edges and
- *    to deal with each individually.
- *   2. Vertices are represented as indices
- *   3. DIST[i] represents the shortest distance to aparticular element at index i.
+ * THE DIFFERENCE WITH BELLMAN-FORD ALORGITHM WE DISCUSSED EALIER IS THAT
+ * WE DON'T NEED THE OUTER MOST LOOP THAT LEADS FROM 1-N.
+ * THIS IS EFFICIENT ALGORITHM TO BE USED WHEN WE DON'T HAVE NEGATIVE WEIGHTS IN OUR
+ * GRAPH.
+ * 
+ * TIME COMPLEXITY: log(O(n+ mlogm)) // GENERAL VIEW
+ * 
  ***/
 
 class Graph
@@ -75,9 +61,9 @@ public:
 int main()
 {
 
-    int N = 5;
+    int N = 4;
     Graph graph(N);
-    vector<vector<int>> edges = {{0, 1, -1}, {0, 2, 4}, {1, 2, 3}, {1, 3, 2}, {1, 4, 2}, {3, 2, 5}, {3, 1, 1}, {4, 3, -3}};
+    vector<vector<int>> edges = {{0, 1, 1}, {0, 2, 4}, {1, 2, 2}, {1, 3, 6}, {2, 3, 3}};
     for (int i = 0; i < edges.size(); i++)
         graph.addEge(edges[i][0], edges[i][1], edges[i][2]);
     graph.findShortestPath();

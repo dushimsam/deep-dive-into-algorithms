@@ -24,6 +24,8 @@ using namespace std;
  *    to deal with each individually.
  *   2. Vertices are represented as indices
  *   3. DIST[i] represents the shortest distance to aparticular element at index i.
+ *   4. Efficient algorithm to be used when we have negative weights in our graph.
+ *   5. TIME COMPLEXITY log(V.E)
  ***/
 
 class Graph
@@ -53,7 +55,7 @@ public:
                 int src = get<0>(edge_list[j]);
                 int dest = get<1>(edge_list[j]);
                 int weight = get<2>(edge_list[j]);
-                
+
                 // applying relaxing formula
                 int newDist = DIST[src] + weight;
 
