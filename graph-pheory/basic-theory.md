@@ -80,4 +80,6 @@ which one would you prefer using ?
 
                   x. STRONG CONNECTIVITY
 1. What is the algorithm to find the strongly connected components in a graph ?
-  
+2. Is it true that for undirected graph the number of strongly connected components is equal to the number of components in the graph ?
+Explain why .
+3. Describe 3 steps of kosaraju's algorithm and the reason for each.
