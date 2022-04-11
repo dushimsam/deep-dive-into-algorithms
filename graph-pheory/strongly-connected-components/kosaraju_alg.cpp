@@ -7,7 +7,12 @@ using namespace std;
  *  in O(V+E)
  *
  *  APPROACH
- *  summary :: 1. DFS1 2. GRAPH.REVERSE() 3. DFS2 based on STACK
+ *  summary ::
+ *
+step1:-Perform DFS traversal of graph push node to stack before returning.
+Step2:-Find transpose of a graph by reversing the edges.
+Step3:-Pop node one by one from stack and again do DFS traversal on modified graph keep popping nodes each successful DFS traversal give 1 Strongly Connected Component.
+
  *
  * 1. CREATE  A STACK
  *
