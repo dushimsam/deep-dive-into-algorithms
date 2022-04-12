@@ -4,7 +4,7 @@ using namespace std;
 /***
  *   FIND THE K'th Ancestor of a particular child in a tree.
  *   - The same approach like that used in union find algorithms.
- * 
+ *   The algorithm can be improved to O(logn) as usual.
 ***/
 class Tree
 {
