@@ -84,3 +84,11 @@ which one would you prefer using ?
 Explain why .
 3. Describe 3 steps of kosaraju's algorithm and the reason for each.
 4. Differentiate P,NP,NP-HARD,NP-COMPLETE algorithms ?
+
+                 xi. TREE QUERIES
+
+1. In which format to represent the nodes of tree when finding the ancestor of a particular node 
+   A. Adjency list
+   B. Edge list
+   C. Matrix representation
+   D. array
