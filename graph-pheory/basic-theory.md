@@ -83,3 +83,4 @@ which one would you prefer using ?
 2. Is it true that for undirected graph the number of strongly connected components is equal to the number of components in the graph ?
 Explain why .
 3. Describe 3 steps of kosaraju's algorithm and the reason for each.
+4. Differentiate P,NP,NP-HARD,NP-COMPLETE algorithms ?
