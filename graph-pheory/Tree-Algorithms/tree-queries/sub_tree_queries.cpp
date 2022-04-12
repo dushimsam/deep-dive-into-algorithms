@@ -68,7 +68,7 @@ int main()
 {
     int n = 9;
 
-    vector<vector<int>> adj = {{1, 5}, {1, 4}, {1, 3}, {1, 2}, {2, 6}, {4, 7}, {4, 8}, {4, 9}};
+    vector<vector<int>> adj = {{1, 2}, {1, 3},{1, 4},{1, 5},  {2, 6}, {4, 7}, {4, 8}, {4, 9}};
     vector<vector<int>> nodeValues = {{1,2},{2,3},{3,5},{4,3},{5,1},{6,4},{7,4},{8,3},{9,1}};
    
     Tree tree(n+1,nodeValues);
