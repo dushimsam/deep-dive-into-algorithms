@@ -4,6 +4,10 @@ using namespace std;
 /***
                               WARNS DORF RULE ALGORITHM
  Summary: This algorithm is based on prefering the next position to be that one which will yield the minimum next move possibilities.
+ We want to visit each chess board's cell atleast once. 
+
+ // This is the same algorithm i think can be used on Hamilitanian algorithm , where 
+ we intend to visit every vertice at least once in a complete traversal.
 
                          APPROACH 
 let x = 0
