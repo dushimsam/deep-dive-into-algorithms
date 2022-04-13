@@ -1,7 +1,8 @@
  UDONE:
 
 1. 2SAT problem about Graphs
-
+2. Heirholzer algo.
+3. De brujin sequences
 
 TO DO:
 
@@ -32,3 +33,6 @@ WHEN TRYING TO COVER ALL THE EDGES.
    EURAL CIRCUIT:
           - ALL EDGES SHOULD BE VISITED EXACTLY ONCE.
           - THE STARTING VERTEX SHOULD BE THE ENDING VERTEX.
+
+   other definition:
+         - When i have a plan of visiting all the edges of the graph without retraversing the visited edge starting from a particular node , i will end up falling back on the node i started on before traversing the graph.

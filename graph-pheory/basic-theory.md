@@ -108,3 +108,8 @@ A real world scenario where Eulerian Circuit can be applied
 4. List the two conditions that should be statisfied to have an existence of Eurlerian Path in a directed agraph .
 5. How do we call the algorithm that is used to construct Eurelian circuit
 6. How do we call the efficient algorithm fo create Hamiltonian cicrcuit ,if there'sn't why ?
+
+                        FLOWS AND CUTS
+
+1. Which type of the graph is when working with the problem of max-flow and min-cuts ?
+2. Describe the properties of  a source and a sink in terms of edges on a directed graph ?
