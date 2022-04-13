@@ -9,6 +9,7 @@ class Tree
     vector<int> nodeIds;
     vector<int> nodeDegree;
     vector<int> nodeValues;
+    vector<int> mp;
 
 public:
     Tree(int n, vector<vector<int>> nodeVals)
@@ -16,6 +17,7 @@ public:
         this->n = n;
         nodeDegree.resize(n + 1, 0);
         nodeValues.resize(n + 1, 0);
+        mp.resize(n+1,0);
 
         for (int i = 0; i < nodeVals.size(); i++)
             nodeValues[nodeVals[i][0]] = nodeVals[i][1];
@@ -39,22 +41,19 @@ public:
             nodeDegree[v] += nodeDegree[*it];
         }
     }
-
-    int findNodeIndex(int nodeId)
-    {
-        for (int i = 0; i < nodeIds.size(); i++)
-        {
-            if (nodeIds[i] == nodeId)
-                return i;
+    
+    void processMp(){
+        for(int i=0;i<nodeIds.size();i++){
+            mp[nodeIds[i]] =i; 
         }
-        return 0;
     }
 
-    int findSubTreeSum(int nodeId)
+   
+   // Given a subtree parent, Calculate the sum of the value of the nodes in that subtree.
+    int processSumQueries(int nodeId)
     {
         int subTreeSum = 0;
-        int nodeIndex = findNodeIndex(nodeId);
-
+        int nodeIndex = mp[nodeId];
         int nodeCount = nodeDegree[nodeId];
 
         for (int i = nodeIndex; i < (nodeCount + nodeIndex); i++)
@@ -62,6 +61,19 @@ public:
             subTreeSum += nodeValues[nodeIds[i]];
         }
         return subTreeSum;
+    }
+
+    //Calculate the sum of values on a particular path. From  root - to aparticular child
+    int processPathQueryFromRootToAnyNode(int child){
+        vector<int> pathSum(n,0);
+
+        // pathSum[0] = nodeValues[nodeIds[0]];
+        
+        // for(int i=1;i<nodeIds.size();i++){
+        //     pathSum[i] = pathSum[i-1] + nodeValues[nodeIds[i]];
+        // }
+        
+        return pathSum[mp[child]];
     }
 };
 
@@ -77,8 +89,12 @@ int main()
         tree.addEdge(adj[i][0], adj[i][1]);
 
     tree.DFS(1);
+    tree.processMp();
+
     int u = 7;
 
-    cout << "\n\n\nSUBTREE SUM OF " << u << " : " << tree.findSubTreeSum(u);
+    cout << "\n\n\nSUBTREE SUM OF " << u << " : " << tree.processSumQueries(u);
+    cout<<"\nPATH SUM BETWEEN 1 AND 9 "<<tree.processPathQueryFromRootToAnyNode(9);
+    
     return 0;
 }
