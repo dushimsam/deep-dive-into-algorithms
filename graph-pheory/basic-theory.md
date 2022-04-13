@@ -93,5 +93,18 @@ Explain why .
    C. Matrix representation
    D. array
 
+2. Describe the two versions discussed of creating sub-tree queries spareMatrix available.
 
-   
+               x. PATHS AND CIRCUITS
+
+A real world scenario where Eulerian Circuit can be applied 
+    I have a network (graph) of elements , i want to route from element A to element B.
+    How many possible ways of reaching to element B. If i don't want retrace in a route
+    which i used before ?
+
+1. Differentiate Eulerian Path from Hamiltonian Path.
+2. What do you understand by Eurlerian circuit ?
+3. List the two conditions that should be statisfied to have an existence of Eurlerian Path in undirected agraph .
+4. List the two conditions that should be statisfied to have an existence of Eurlerian Path in a directed agraph .
+5. How do we call the algorithm that is used to construct Eurelian circuit
+6. How do we call the efficient algorithm fo create Hamiltonian cicrcuit ,if there'sn't why ?
