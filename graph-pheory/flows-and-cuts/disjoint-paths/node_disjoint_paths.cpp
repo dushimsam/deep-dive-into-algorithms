@@ -1,6 +1,5 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-
 
 /***
                    NODE DISJOINT PATH PROBLEM
@@ -13,9 +12,38 @@ Same problem but on vertice not edge.
 2. Apply the same algorithm of fulkerson-ford for holding in mind that each edge has a weight of 1.
 
 ***/
-int main(){
 
+class Graph
+{
+vector<vector<int>> graph;
+int n;
+public:
+     Graph(int n,vector<vector<int>> givenGraph){
+     this -> n = (n-2)*2 + 2;
+     formGraph(givenGraph);
+     }
 
+     void formGraph(vector<vector<int>> givenGraph){
+        graph.resize(n,vector<int>(n,0));
+         
+        
+        for(int i=0;i<n;i++){
+ 
+        }
+
+     }
+
+};
+
+int main()
+{
+    int n = 6;
+    vector<vector<int>> gr = {{0, 8, 0, 0, 3, 0},
+                              {0, 0, 9, 0, 0, 0},
+                              {0, 0, 0, 0, 7, 2},
+                              {0, 0, 0, 0, 0, 5},
+                              {0, 0, 7, 4, 0, 0},
+                              {0, 0, 0, 0, 0, 0}};
 
     return 0;
 }

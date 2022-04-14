@@ -100,6 +100,52 @@ public:
 
         return max_flow;
     }
+   /***                  MAX-FLOW MOVEMENT
+    creates two groups of nodes group A and B.
+    The edges between both groups from the original graph
+    are zero.
+    So those edges are the one called min-cuts. 
+    The sum of the their weights in the reversed graph 
+    will be equal to max_flow.
+    ***/
+
+    void findMinCuts()
+    {
+        vector<int> minCuts;
+        queue<int> q;
+        vector<int> visited(n, false);
+        visited[s] = true;
+        q.push(s);
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++) cout<<graph[i][j]<<" ";
+            cout<<endl;
+        }
+        while (!q.empty())
+        {
+            int u = q.front();
+            q.pop();
+
+            for (int v = 0; v < n; v++)
+            {
+                if (!visited[v] && graph[u][v] > 0)
+                {
+                    q.push(v);
+                    visited[v] = true;
+                }
+                else if (!visited[v] && graph[u][v] == 0)
+                {
+                    visited[v] = true;
+                    minCuts.push_back(u);
+                }
+            }
+        }
+
+        cout<<endl<<endl;
+        for(int i=0;i<minCuts.size();i++)
+        {
+            cout<<minCuts[i]<<" ";
+        }
+    }
 };
 int main()
 {
@@ -110,12 +156,12 @@ int main()
                               {0, 0, 0, 0, 0, 5},
                               {0, 0, 7, 4, 0, 0},
                               {0, 0, 0, 0, 0, 0}};
-     
+
     int s = 0;
     int e = 5;
     int n = 6;
-     Graph graph(n,gr,s,e);
-      cout << "Max Flow: " << graph.findMaxFlow() << endl;
-
+    Graph graph(n, gr, s, e);
+    cout << "Max Flow: " << graph.findMaxFlow() << endl;
+    graph.findMinCuts();
     return 0;
 }
