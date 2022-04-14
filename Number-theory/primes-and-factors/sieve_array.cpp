@@ -2,7 +2,8 @@
 using namespace std;
 
 /***
-                      SIEVE ARRAY
+                      SIEVE ARRAY O(nloglogn) = O(n)
+
                       - Helps the status of the numbers x between 2 and n
                       if either x is a prime number or it can be found by a multiple of particular prime number.
 
@@ -34,6 +35,7 @@ vector<int> buildSieveArray(int n)
     }
     return sieve;
 }
+
 int main()
 {
     int n = 20;
