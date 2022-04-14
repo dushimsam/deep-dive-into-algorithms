@@ -7,10 +7,13 @@ using namespace std;
 it turns out that if n is not a prime number , its factors will be less than sqrt(n).
 
  ***/
+
 vector<int> findPrimeFactors(int n){
     vector<int> primeFactors;
 
     for(int x = 2; x*x <= n; x++){
+
+        // continue checking if a multiple of the x can divide the number.
         while(n % x == 0){
               primeFactors.push_back(x);
               n /= x;
