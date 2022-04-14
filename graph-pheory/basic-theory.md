@@ -13,6 +13,7 @@
 
 10. What is the drawback of graph matrix representation over 
 using adjency list.
+11. What are adjacent vertices ?
 
                   ii. GRAPH TRAVERSAL 
 
@@ -21,6 +22,7 @@ A. THEORY
 1. Differentiate  Depth-first search from Breadth-first search works ?
 2. Mention the time complexity of Depth-first search and Breadth-first search.
 3. Which datastructure is used to implement the Breadth-first search ?
+4. When is it preferable to use DFS and BFS ?
 
 B. PRACTICAL 
 1. CHECK CYCLES IN A GRAPH.
@@ -109,7 +111,24 @@ A real world scenario where Eulerian Circuit can be applied
 5. How do we call the algorithm that is used to construct Eurelian circuit
 6. How do we call the efficient algorithm fo create Hamiltonian cicrcuit ,if there'sn't why ?
 
-                        FLOWS AND CUTS
+                  xi. FLOWS AND CUTS
 
 1. Which type of the graph is when working with the problem of max-flow and min-cuts ?
 2. Describe the properties of  a source and a sink in terms of edges on a directed graph ?
+3. Which algorithm is mostly used to solve max-flow and min-cut problems ?
+4. Why is it so called maximum-flow and minimum-cut ?
+5. Differentiate disjoint paths from non-disjoint paths.
+6. Differentiate maximal matching from maximum matching ?
+7. What is the name given to a graph which has a corresponding matching  for every vertex in it ?
+8. Can we have more than one complete matching in a graph ?
+9. What does Hall's theorem tells about the possibility of finding a perfect matching in a graph ?
+10. What is a minimimum node cover of the graph ?
+  (hint -> for each edge has atleast one end point in a set)
+11. Solving a minimum node cover problem in the graph is an NP-HARD PROBLEM ,
+What does Konig's Theorem tells us about what the solution should be if the graph is bipartile ?
+  (hint -> set such that ... two ... are independent)
+12. How can you solve the problem of a minimum node-disjoint path cover in a respective of max-flow problem ?
+13. What do you understand by antichain
+    hint( I am wondering if in my country there cities in which you can't find a route between them)
+14. What does Dilworth's theorem states ?
+    hint( he links min-general path to max-antichain)

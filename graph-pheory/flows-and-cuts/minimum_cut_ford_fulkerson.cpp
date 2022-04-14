@@ -1,10 +1,19 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
+class Graph
+{
 
-int main(){
+    vector<vector<int>> matrix;
 
-
+public:
+    Graph(int n)
+    {
+        matrix.resi
+    }
+};
+int main()
+{
 
     return 0;
 }

@@ -3,6 +3,9 @@
 1. 2SAT problem about Graphs
 2. Heirholzer algo.
 3. De brujin sequences
+4. General Path Cover || antichain
+5. Node Disjoint Path Cover
+6. KNIGHTS TOURS
 
 TO DO:
 
