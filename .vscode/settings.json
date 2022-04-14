@@ -6,6 +6,7 @@
         "iostream": "cpp",
         "string_view": "cpp",
         "ostream": "cpp",
-        "tuple": "cpp"
+        "tuple": "cpp",
+        "numeric": "cpp"
     }
 }
