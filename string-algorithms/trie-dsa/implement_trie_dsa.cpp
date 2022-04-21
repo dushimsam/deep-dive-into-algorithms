@@ -40,48 +40,67 @@ public:
         for (int i = 0; i < word.length(); i++)
         {
             int index = word[i] - 'a'; // find the distance between 'a' and the character word[i]
-       
-            if(curr->child[index] == NULL){
+
+            if (curr->child[index] == NULL)
+            {
                 curr->child[index] = getNode(index); // the best place to insert the character
             }
 
-            curr->count +=1;
-            curr = curr->child[index]; 
+            curr->child[index]->count += 1;
+            curr = curr->child[index];
         }
         curr->endsHere = 1;
     }
 
-    bool searchWord(string word){
-         TrieNode *curr = root;
+    bool searchWord(string word)
+    {
+        TrieNode *curr = root;
 
         for (int i = 0; i < word.length(); i++)
         {
             int index = word[i] - 'a'; // find the distance between 'a' and the character word[i]
-       
-            if(curr->child[index] == NULL){
+
+            if (curr->child[index] == NULL)
+            {
                 return false;
             }
 
-            curr->count +=1;
-            curr = curr->child[index]; 
+            curr->count += 1;
+            curr = curr->child[index];
         }
         return (curr->endsHere == 1);
     }
 
+    int countWordsWithPrefix(string prefix)
+    {
+        TrieNode *curr = root;
 
-    bool startsWith(string prefix){
-           TrieNode *curr = root;
+        for (int i = 0; i < prefix.length(); i++)
+        {
+            int index = prefix[i] - 'a';
+            if (curr->child[index] == NULL)
+                return 0;
+            curr = curr->child[index];
+        }
+        return curr->count;
+    }
+
+
+    bool startsWith(string prefix)
+    {
+        TrieNode *curr = root;
 
         for (int i = 0; i < prefix.length(); i++)
         {
             int index = prefix[i] - 'a'; // find the distance between 'a' and the character prefix[i]
-       
-            if(curr->child[index] == NULL){
+
+            if (curr->child[index] == NULL)
+            {
                 return false;
             }
 
-            curr->count +=1;
-            curr = curr->child[index]; 
+            curr->count += 1;
+            curr = curr->child[index];
         }
         return (curr->count > 0);
     }
@@ -89,18 +108,25 @@ public:
 
 int main()
 {
-    Trie* trie = new Trie();
-    string word = "sam";
-    trie->insert(word);
+    Trie *trie = new Trie();
+ 
+    trie->insert("sam");
+    trie->insert("samsung");
+    trie->insert("summation");
+    trie->insert("addictive");
 
     // TEST INSERT THE WORD
-    cout<<trie->searchWord(word);
+    // cout << trie->searchWord(word);
 
-    //TEST SEARCH HALF WORD .... looking if the last condition holds {(curr->endsHere == 1)}
-    cout<<endl<<trie->searchWord("sa");
+    // TEST SEARCH HALF WORD .... looking if the last condition holds {(curr->endsHere == 1)}
+    // cout << endl
+    //      << trie->searchWord("sa");
 
     // TEST HALF WORD STARTS WITH
-    cout<<endl<<trie->startsWith("sa");
+    // cout << endl
+    //      << trie->startsWith("sa");
+
+    cout<<trie->countWordsWithPrefix("sam");
 
     return 0;
 }

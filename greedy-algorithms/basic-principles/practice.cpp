@@ -1,37 +1,110 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
+#define MAX_NODES 10000
+class Trie {
+  struct Trienode
+  {
+    char val;
+    int count;
+    int endsHere;
+    Trienode* child[26];
+  };
+  Trienode* root;
 
-int findMaxVenom(string input) {
-  map<char, int> mp;
-  string snake = "SNAKE";
-
-  for (int i = 0;i < snake.length();i++) {
-    mp[snake[i]] = 0;
+  Trienode* getNode(int index)
+  {
+    Trienode* newnode = new Trienode;
+    newnode->val = 'a' + index;
+    newnode->count = newnode->endsHere = 0;
+    for (int i = 0;i < 26;++i)
+      newnode->child[i] = NULL;
+    return newnode;
+  }
+public:
+  /** Initialize your data structure here. */
+  Trie() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    root = getNode('/' - 'a');
   }
 
-  int minE = INT_MAX;
-  int curr = 0;
-
-  for (int i = 0;i < input.length();i++) {
-    if (input[i] == snake[curr + 1] && mp[snake[curr]] > 0) {
-      minE = min(mp[snake[curr]], minE);
-      curr++;
-      mp[snake[curr + 1]] += 1;
+  /** Inserts a word into the trie. */
+  void insert(string word) {
+    Trienode* curr = root;
+    int index;
+    for (int i = 0;word[i] != '\0';++i)
+    {
+      index = word[i] - 'a';
+      if (curr->child[index] == NULL)
+        curr->child[index] = getNode(index);
+      curr->child[index]->count += 1;
+      curr = curr->child[index];
     }
-    else if (input[i] == snake[curr]) {
-      if (mp[curr] < minE)
-        mp[snake[curr]] += 1;
-    }
+    curr->endsHere += 1;
   }
 
-  return minE == INT_MAX ? 0 : minE;
-}
+  /** Returns if the word is in the trie. */
+  bool search(string word) {
+    Trienode* curr = root;
+    int index;
+    for (int i = 0;word[i] != '\0';++i)
+    {
+      index = word[i] - 'a';
+      if (curr->child[index] == NULL)
+        return false;
+      curr = curr->child[index];
+    }
+    return (curr->endsHere > 0);
+  }
 
+ 
+    int countWordsWithPrefix(string prefix)
+    {
+        Trienode *curr = root;
+
+        for (int i = 0; i < prefix.length(); i++)
+        {
+            int index = prefix[i] - 'a';
+            if (curr->child[index] == NULL)
+                return 0;
+            curr = curr->child[index];
+        }
+        return curr->count;
+    }
+
+  /** Returns if there is any word in the trie that starts with the given prefix. */
+  bool startsWith(string prefix) {
+    Trienode* curr = root;
+    int index;
+    for (int i = 0;prefix[i] != '\0';++i)
+    {
+      index = prefix[i] - 'a';
+      if (curr->child[index] == NULL)
+        return false;
+      curr = curr->child[index];
+    }
+    return (curr->count > 0);
+  }
+};
 
 int main() {
-   map<int,int> mp;
-   mp[2] = 1;
-   cout<<mp[2];
+  /**
+   * Your Trie object will be instantiated and called as such:
+   * Trie* obj = new Trie();
+   * obj->insert(word);
+   * bool param_2 = obj->search(word);
+   * bool param_3 = obj->startsWith(prefix);
+   */
+
+  Trie* trie = new Trie();
+
+  trie->insert("sam");
+  trie->insert("samsung");
+  trie->insert("summation");
+  trie->insert("addictive");
+
+  cout << trie->countWordsWithPrefix("sam");
+
   return 0;
 }
