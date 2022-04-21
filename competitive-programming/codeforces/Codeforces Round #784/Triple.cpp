@@ -7,9 +7,10 @@ int main() {
 
     int n;
     cin >> n;
-    map<int, int> mp;
+   
 
     while (n--) {
+         map<int, int> mp;
         int len;
         cin >> len;
         int maxE = -1;
@@ -21,13 +22,15 @@ int main() {
             if (mp[num] == 0) mp[num] = 1;
             else {
                 mp[num]++;
-                if (mp[num] > maxE)
+
+                if (mp[num] > maxV)
                 {
                     maxE = num;
                     maxV = mp[num];
                 }
             }
         }
+
         if (maxV >= 3) cout << maxE << endl;
         else cout << -1 << endl;
     }
