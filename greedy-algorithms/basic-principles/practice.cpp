@@ -30,7 +30,8 @@ int findMaxVenom(string input) {
 
 
 int main() {
-  string input = "SNAKESNAKESNAKE";
-  cout << findMaxVenom(input);
+   map<int,int> mp;
+   mp[2] = 1;
+   cout<<mp[2];
   return 0;
 }
