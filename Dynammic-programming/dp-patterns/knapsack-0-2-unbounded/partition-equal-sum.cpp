@@ -28,6 +28,7 @@ int partitionSum(vector<int> elements, int target)
             {
                 int prev = dp_matrix[i - 1][j];
                 int sub_res = dp_matrix[i - 1][j - elements[i - 1]];
+                
                 if (prev != -1 && sub_res != -1)
                     dp_matrix[i][j] = min(sub_res + 1, prev);
                 else if (sub_res == -1)
