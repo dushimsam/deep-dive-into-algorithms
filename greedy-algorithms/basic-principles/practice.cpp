@@ -33,23 +33,12 @@ int solve(deque<int> nums) {
 
 
 int main() {
-
-  int tests;
-  cin >> tests;
-
-  for (int test_case = 1; test_case <= tests; test_case++) {
-    int n;
-    deque<int> nums;
-    cin >> n;
-
-    for (int i = 0; i < n; i++) {
-      int num;
-      cin >> num;
-      nums.push_back(num);
-    }
-    cout << "Case #" << test_case << ": ";
-    cout << solve(nums);
-    cout << endl;
-  }
+int t;
+cin >> t;
+while(t--) {
+ string in;
+ cin >> in;
+ cout<< solve(in)<<"\n";
+}
   return 0;
 }
