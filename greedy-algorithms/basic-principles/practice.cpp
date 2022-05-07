@@ -3,7 +3,9 @@ using namespace std;
 
 
 int main(){
- cout << __gcd(1,5);
-
+   float a = 7;
+   float b = 8;
+   cout<<(a/b)<<endl;
+   cout<<(a == b);
     return 0;
 }
