@@ -33,3 +33,10 @@ SLIDDING WINDOW
         pop back 
 3. Add element in the queue.
 4. After it has made the k_window size , print the top element.
+
+
+ ADDONS
+ 1. QUEUE DSA - FIFO (first in first out)
+ 2. STACK DSA - LIFO (last in last out)
+ 3. DEQUE DSA - DOUBLE ENDED QUEUE
+ 
