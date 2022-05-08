@@ -97,8 +97,8 @@ vector<int> slidingWindowOptimized(vector<int> arr, int windowSize) {
 }
 
 int main() {
-    vector<int> nums = { 1 };
-    int k = 1;
+    vector<int> nums = { 1,5,6,1,3 };
+    int k = 2;
     vector<int> results = slidingWindowOptimized(nums, k);
     for (int i = 0;i < results.size();i++)
         cout << results[i]<<" , ";

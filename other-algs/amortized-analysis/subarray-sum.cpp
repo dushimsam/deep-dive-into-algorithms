@@ -24,7 +24,7 @@ vector<int> findSubarray(vector<int> arr, int target) {
 
     while (right_pointer < arr.size()) {
 
-        if (sum > target && left_pointer < right_pointer) {
+        while (sum > target && left_pointer < right_pointer) {
             sum -= arr[left_pointer];
             left_pointer++;
         }
