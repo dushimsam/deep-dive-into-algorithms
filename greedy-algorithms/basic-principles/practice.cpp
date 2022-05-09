@@ -1,29 +1,41 @@
 #include<bits/stdc++.h>
-typedef vector<int> vi;
 using namespace std;
+int arr[1000];
 
-vi findSubArrSum(vi nums,int target){
- int right_pointer = 1;
- int left_pointer = 0;
- int sum = 0;
- while(right_pointer < nums.size()){
-      
-      while(sum > target && left_pointer < right_pointer){
-       sum -= nums[left_pointer];
-       left_pointer--;
-      }
-     
-     if(sum == target){
-         return {left_pointer,right_pointer};
-     }
-     right_pointer++;
-     sum += nums[right_pointer];
- }
-
- return {};    
+int fib(int n) {
+    if (n == 1 || n == 0) return n;
+    if (arr[n]) return arr[n];
+    else {
+        arr[n] = fib(n - 1) + fib(n - 2);
+        return arr[n];
+    }
 }
 
-int main(){
+int printN(int n) {
+    cout << n << " ";
+    if (n == 1) return 1;
+    return printN(n - 1);
+}
+
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
+}
+
+
+int findSubArray(vector<int> nums) {
+    int sum = 0;
+    for(int i=0;i<nums.size();i++) sum += nums[i];
+
+    for(int i=){
+    
+    }
+}
+
+
+int main() {
+
+    cout << gcd(27, 45);
 
     return 0;
 }
