@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+typedef vector<int> vi;
 int arr[1000];
 
 int fib(int n) {
@@ -17,25 +18,13 @@ int printN(int n) {
     return printN(n - 1);
 }
 
-int gcd(int a, int b) {
-    if (b == 0) return a;
-    return gcd(b, a % b);
-}
 
 
-int findSubArray(vector<int> nums) {
-    int sum = 0;
-    for(int i=0;i<nums.size();i++) sum += nums[i];
 
-    for(int i=){
-    
-    }
-}
+
 
 
 int main() {
-
-    cout << gcd(27, 45);
-
+    cout << ('o' - 'e');
     return 0;
 }
