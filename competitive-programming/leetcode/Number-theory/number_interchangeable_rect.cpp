@@ -5,27 +5,26 @@ bool compare_float(float x, float y){
      return (x == y);
 }
 
-int countRect(vector<vector<int>> rectangles){
-     int N = rectangles.size();
-    int count = 0;
-    for(int mask=0;mask < (1 << N);mask++){
-        vector<vector<int>> found;
-        for(int j=0;j<N;j++){
-            if(mask & (1 <<j)){
-               found.push_back(rectangles[j]);
-            }
-        }
+int countRect(vector<vector<int>> rect){
+    vector<double> ratios;
+    int n = rect.size();
 
-        if(found.size() == 2){
-                vector<int> rect = found[0];
-                float x = (float)rect[0] / (float)rect[1];
-                rect = found[1];
-                float y = (float)rect[0] / (float)rect[1];  
-                if(compare_float(x, y))count++;
-        }
+    for(int i=0;i<n;i++){
+         ratios.push_back((double)rect[i][0]/(double)rect[i][1]);
     }
 
-    return count;
+    map<double,int> map_count;
+    
+    int count_pairs = 0;
+
+    for(int i=0;i<ratios.size();i++){
+        if(map_count[ratios[i]]){
+             count_pairs += map_count[ratios[i]];
+        }
+        map_count[ratios[i]]++;
+    }
+
+    return count_pairs;
 }
 int main(){
 
