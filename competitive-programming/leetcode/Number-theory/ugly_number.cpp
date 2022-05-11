@@ -1,32 +1,31 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-typedef long long int lli;
+typedef long long  ll;
 
-lli lcm(int a, int b) {
-    return (lli)a *(b /__gcd(a, b));
+ll lcm(ll a, ll b) {
+    return (a * b)/__gcd(a, b);
+}
+
+ll fn (ll a , ll b , ll c , ll x){
+    return (x/a) + (x/b) + (x/c) - x/lcm(a,b) - x/lcm(a,c) - x/lcm(b,c) + x/lcm(a,lcm(b,c));
 }
 
 int findUglyNumber(int a, int b, int c, int n) {
-    lli low = 1;
-    lli high = INT_MAX;
-    lli o = 0;
 
-    while (low < high) {
-        lli mid = (high + low) / 2;
+    ll low = 0;
+    ll high = 2e9;
 
-        o = (int)((mid / a) + (mid / b) + (mid / c) - (mid / lcm(a, b)) - (mid / lcm(b, c)) - (mid / lcm(a, c)) + (mid / lcm(a, lcm(b, c))));
-    
-        if (o < n) {
-            low = mid + 1;
-        }
-        else {
-            high = mid;
-        }
+    while (low < (high-1)) {
+        ll mid = (low+high)/2;
+        
+        if(fn(a,b,c,mid) < n) low =mid;
+        else high = mid;
     }
 
-    return (int)low;
+    return high;
 }
+
 int main() {
 int  n = 3, a = 2, b = 3, c = 5;
 
