@@ -2,6 +2,20 @@
 using namespace std;
 typedef vector<int> vi;
 
+/***
+ * @author Dush Sam.
+ * 
+ *                       SELECTION SORTING 
+ * TIME COMPLEIXTY: O(n^2)
+ *                        
+ *                        APPROACH
+ * 1. Pick the minimum element in the right part of the array.
+ * 2. Let the min element sit in the current position.
+ *
+ *  
+***/
+
+
 void printArr(vi arr){
     cout<<"\n";
     for(int e:arr) cout<<e<<" ";
