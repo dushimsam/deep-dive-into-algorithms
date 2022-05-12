@@ -6,7 +6,9 @@ typedef vector<int> vi;
  * @author Dush Sam.
  * 
  *                       SELECTION SORTING 
- * TIME COMPLEIXTY: O(n^2)
+ * TIME COMPLEIXTY: 
+ *       WORST CASE: O(n^2)
+ *       BEST CASE: O(n^2)
  *                        
  *                        APPROACH
  * 1. Pick the minimum element in the right part of the array.

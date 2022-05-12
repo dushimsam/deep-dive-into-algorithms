@@ -6,7 +6,9 @@ typedef vector<int> vi;
  * @author Dush Sam.
  *
  *                       INSERTION SORTING
- * TIME COMPLEIXTY: O(n^2)
+ * TIME COMPLEIXTY:
+ *      WORST CASE: O(n^2)
+ *      BEST CASE: O(n)
  *
  *                        APPROACH
  * 1. FOR(I = 1 TO N-1)

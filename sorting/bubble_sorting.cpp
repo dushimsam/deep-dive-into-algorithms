@@ -6,8 +6,10 @@ typedef vector<int> vi;
  * @author Dush Sam.
  *
  *                       BUBBLE SORTING
- * TIME COMPLEIXTY: O(n^2)
- *
+ * TIME COMPLEIXTY: 
+ *      WORST CASE : O(n^2)
+ *      BEST CASE : O(n)
+ * 
  *                        APPROACH
  * 1. DO THIS "N" TIMES
  * 2.    COMPARE THE CURR ELEMENT AND IT'S NEXT
