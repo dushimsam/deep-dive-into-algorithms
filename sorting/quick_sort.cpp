@@ -75,7 +75,7 @@ void printArr(vi arr)
 int main()
 {
 
-    vi arr = {64, 25, 12, 22, 11};
+    vi arr = {9, 25, 22, 12, 11, 1, -100};
     int n = arr.size();
 
     quickSort(arr, 0, n - 1);
