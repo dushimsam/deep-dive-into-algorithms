@@ -23,31 +23,31 @@ public:
         this->root = root;
     }
 
-    void inorderTraverse(struct Node *node)
+    void inorderTraversal(struct Node *node)
     {
         if (node == NULL)
             return;
-        inorderTraverse(node->left);
+        inorderTraversal(node->left);
         cout << node->data;
-        inorderTraverse(node->right);
+        inorderTraversal(node->right);
     }
 
-    void preOrderTraverse(struct Node *node)
+    void preOrderTraversal(struct Node *node)
     {
         if (node == NULL)
             return;
         cout << node->data;
-        preOrderTraverse(node->left);
-        preOrderTraverse(node->right);
+        preOrderTraversal(node->left);
+        preOrderTraversal(node->right);
     }
 
-    void postOrderTraverse(struct Node *node)
+    void postOrderTraversal(struct Node *node)
     {
         if (node == NULL)
             return;
 
-        postOrderTraverse(node->left);
-        postOrderTraverse(node->right);
+        postOrderTraversal(node->left);
+        postOrderTraversal(node->right);
         cout << node->data;
     }
 };
@@ -65,15 +65,16 @@ int main()
     
     BinaryTree tree(root);
    cout << "\nPreOrder traversal of binary tree is \n";
-    tree.preOrderTraverse(root);
+    tree.preOrderTraversal(root);
     cout<<endl;
 
+
     cout << "\nInOrder traversal of binary tree is \n";
-    tree.inorderTraverse(root);
+    tree.inorderTraversal(root);
     cout<<endl;
 
     cout << "\nPostOrder traversal of binary tree is \n";
-    tree.postOrderTraverse(root);
+    tree.postOrderTraversal(root);
 
     return 0;
 }
