@@ -33,6 +33,7 @@ void printNearestElementsForEachElement(vector<int> arr){
     stack<int> S;
     
     for(int i=0;i<arr.size();i++){
+        
         while(!S.empty() && arr[i] <= S.top()){
             S.pop();
         }

@@ -35,6 +35,7 @@ int findMaximum(queue<int> queue_elements) {
     return maxElem;
 }
 
+
 vector<int> slidingWindow(vector<int> elements, int windowSize) {
     vector<int> results;
     queue<int> windowElements;
@@ -42,6 +43,7 @@ vector<int> slidingWindow(vector<int> elements, int windowSize) {
     for (int i = 0;i < windowSize;i++) {
         windowElements.push(elements[i]);
     }
+
     results.push_back(findMaximum(windowElements));
 
     for (int end = windowSize;end < elements.size();end++) {
@@ -51,6 +53,9 @@ vector<int> slidingWindow(vector<int> elements, int windowSize) {
     }
     return results;
 }
+
+
+
 
 // USING DEQUE DSA THE MOST EFFICIENT ALGORITHM
 /***                             APPROACH
@@ -76,14 +81,14 @@ vector<int> slidingWindow(vector<int> elements, int windowSize) {
  * 1. The stack element are mantained to be decreasing order.
 ***/
 
-
 vector<int> slidingWindowOptimized(vector<int> arr, int windowSize) {
       vector<int> results;
       deque<int> deque_elements;
 
      for(int i=0;i<arr.size();i++){
-         // protecting the out of bounds with given windowSize.
+         
         if(!deque_elements.empty()){
+               // protecting the out of bounds with given windowSize.
                if(deque_elements.front() == (i-windowSize)) deque_elements.pop_front();
                while(!deque_elements.empty() && arr[i] > arr[deque_elements.back()]) deque_elements.pop_back();
         }

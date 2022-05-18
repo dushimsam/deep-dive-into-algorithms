@@ -7,6 +7,7 @@ typedef vector<int> vi;
  *
  *                       QUICK SORTING ALGORITHM
  * TIME COMPLEIXTY:
+ * 
  *    WORST CASE -  O(n^2)
  *    AVERAGE CASE - O(n*log(n))
  *    BEST CASE - O(n*log(n))

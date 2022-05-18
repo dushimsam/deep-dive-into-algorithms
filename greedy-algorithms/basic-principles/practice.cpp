@@ -1,30 +1,35 @@
 #include<bits/stdc++.h>
+
 using namespace std;
-typedef vector<int> vi;
-int arr[1000];
 
-int fib(int n) {
-    if (n == 1 || n == 0) return n;
-    if (arr[n]) return arr[n];
-    else {
-        arr[n] = fib(n - 1) + fib(n - 2);
-        return arr[n];
+vector<int> solve(vector<int>  numbers, int target) {
+
+    int leftPointer = 0;
+    int rightPointer = numbers.size() - 1;
+
+    while (leftPointer < rightPointer) {
+        int sum = numbers[leftPointer] + numbers[rightPointer];
+
+        if (sum < target) {
+            leftPointer++;
+        }
+        else if (sum > target) {
+            rightPointer--;
+        }
+        else {
+            return{ numbers[leftPointer], numbers[rightPointer] };
+        }
     }
+
+    return {};
 }
-
-int printN(int n) {
-    cout << n << " ";
-    if (n == 1) return 1;
-    return printN(n - 1);
-}
-
-
-
-
-
-
-
 int main() {
-    cout << ('o' - 'e');
+    stack<int> nums;
+    nums.push(3);
+    nums.push(4);
+    nums.push(1);
+    cout<<nums.top()<<endl;
+    cout<<nums.pop()<<endl;
+    cout<<nums.top()<<endl;
     return 0;
 }

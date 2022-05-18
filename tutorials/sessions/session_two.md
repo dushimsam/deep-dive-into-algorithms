@@ -1,9 +1,9 @@
 
 AMORTIZED APPROACHES
 
-1. right-pointer is used for adding more elemetns
-2. left-pointer is used for removing the elements
-3. until we reach to the target.
+1. left-pointer is used for adding more elements
+2. right-pointer is used for removing the elements
+3. until we reach to the target.fd
 4. If the right-pointer reaches the end still less than or greater than target 
 we end the process.
 
@@ -23,7 +23,7 @@ NEAREST SMALLER ELEMENT
 3. Print the element and pop it from the stack.
 4. Add the current element into the stack.
 
-SLIDDING WINDOW
+SLIDING WINDOW
 
 1. Make a deque dsa
 2. Check two condtions 
