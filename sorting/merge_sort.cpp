@@ -11,7 +11,7 @@ typedef vector<int> vi;
  *      BEST CASE: O(nlogn)
  *
  *                        APPROACH
- * 
+ *
  * 1.     DIVIDE ARR INTO TWO PARTS (PARTITIONING- log(n))
  * 2.     IMPLEMENT SORTING IN O(n) WHILE MERGING.
  *
@@ -19,12 +19,12 @@ typedef vector<int> vi;
  * 1. MergeSort works on the principle that joining together the sorted subsets can be done in O(n) time.
  ***/
 
-
-
 void merge(vi &arr, int low, int mid, int high)
 {
-    int n1 = (mid - low) + 1;
+
+    int n1 = mid - low + 1;
     int n2 = high - mid;
+
     vi LEFT(n1);
     vi RIGHT(n2);
 
@@ -34,7 +34,7 @@ void merge(vi &arr, int low, int mid, int high)
         LEFT[i] = arr[i + low];
     }
 
-    for (int i = 0; i < n1; i++)
+    for (int i = 0; i < n2; i++)
     {
         RIGHT[i] = arr[i + mid + 1];
     }
@@ -45,7 +45,7 @@ void merge(vi &arr, int low, int mid, int high)
 
     while (i < n1 && j < n2)
     {
-        if (arr[i] < arr[j])
+        if (LEFT[i] <= RIGHT[j])
         {
             arr[k] = LEFT[i];
             i++;
@@ -58,7 +58,7 @@ void merge(vi &arr, int low, int mid, int high)
         k++;
     }
 
-    // the possible left elements in the LEFT
+    // the possible left elements in the LEFT SUB ARR
     while (i < n1)
     {
         arr[k] = LEFT[i];
@@ -66,6 +66,7 @@ void merge(vi &arr, int low, int mid, int high)
         k++;
     }
 
+    // the possible left elements in the RIGHT SUB ARR
     while (j < n2)
     {
         arr[k] = RIGHT[j];
@@ -76,16 +77,19 @@ void merge(vi &arr, int low, int mid, int high)
 
 void mergeSort(vi &arr, int low, int high)
 {
+
     if (low < high)
     {
         int mid = (low + high) / 2;
+        cout<<mid<<endl;
         // Partition the elements on the left
         mergeSort(arr, low, mid);
         // Continue partitioning the elemets on the right
         mergeSort(arr, mid + 1, high);
 
         // merge the two partitioned parts
-        merge(arr,low,mid,high);
+    
+        merge(arr, low, mid, high);
     }
 }
 
@@ -98,7 +102,7 @@ void printArr(vi arr)
 
 int main()
 {
-    vi arr = {64, 25, 12, 22, 11};
+    vi arr = {12, 10, 9, 5, 1};
     int n = arr.size();
 
     mergeSort(arr, 0, n - 1);
