@@ -1,35 +1,15 @@
-#include<bits/stdc++.h>
-
+#include <bits/stdc++.h>
 using namespace std;
+typedef vector<int> vi;
 
-vector<int> solve(vector<int>  numbers, int target) {
 
-    int leftPointer = 0;
-    int rightPointer = numbers.size() - 1;
+int main() {
+    vi arr={34,6,7,8,8};
+    sort(arr.begin(),arr.end());
 
-    while (leftPointer < rightPointer) {
-        int sum = numbers[leftPointer] + numbers[rightPointer];
-
-        if (sum < target) {
-            leftPointer++;
-        }
-        else if (sum > target) {
-            rightPointer--;
-        }
-        else {
-            return{ numbers[leftPointer], numbers[rightPointer] };
-        }
+    for(int e : arr){
+        cout<<e<<endl;
     }
 
-    return {};
-}
-int main() {
-    stack<int> nums;
-    nums.push(3);
-    nums.push(4);
-    nums.push(1);
-    cout<<nums.top()<<endl;
-    cout<<nums.pop()<<endl;
-    cout<<nums.top()<<endl;
     return 0;
 }
