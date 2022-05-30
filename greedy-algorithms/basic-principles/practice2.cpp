@@ -3,9 +3,6 @@ using namespace std;
 typedef vector<int> vi;
 
 
-
-
-
 int main() {
 
     vi arr = { 6,5,12,10,9,1 };
