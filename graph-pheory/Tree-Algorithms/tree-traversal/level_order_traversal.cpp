@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 struct TreeNode
 {
     int val = 0;
@@ -23,6 +24,7 @@ void levelOrder(TreeNode *root)
     
     int level = 0;
 
+     
     while (!currQu->empty())
     { 
           TreeNode * currNode = currQu->front();
@@ -40,14 +42,13 @@ void levelOrder(TreeNode *root)
     }
 }
 
-main()
+int main()
 {
-    TreeNode *root = new TreeNode(100);
-    root->left = new TreeNode(50);
-    root->right = new TreeNode(200);
-    root->left->left = new TreeNode(25);
-    root->left->right = new TreeNode(75);
-    root->right->right = new TreeNode(350);
+    TreeNode *root = new TreeNode(3);
+    root->left = new TreeNode(9);
+    root->right = new TreeNode(20);
+    root->left->right = new TreeNode(7);
+    root->left->left = new TreeNode(15);
 
     levelOrder(root);
 
