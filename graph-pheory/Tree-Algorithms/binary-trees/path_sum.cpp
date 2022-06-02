@@ -28,6 +28,7 @@ bool isTherePathSum(TreeNode *root, int target)
     // It should be the last node in the tree
     if(newDiff == 0 && root->left == NULL && root-> right == NULL) return true;
 
+
     //Check if the left child exist AND and return true if it leads to targeted path sum.
     if(root -> left != NULL && isTherePathSum(root->left, newDiff)) return true;
 
