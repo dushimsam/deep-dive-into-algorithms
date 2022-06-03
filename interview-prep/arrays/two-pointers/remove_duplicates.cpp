@@ -31,6 +31,7 @@ int solve (vi &arr){
     }
     return (left+1);
 }
+
 int main(){
 vi arr={3,4,4,5,5,6,7,8,9};
 int n = solve(arr);
