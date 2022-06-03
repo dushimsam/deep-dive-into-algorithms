@@ -14,17 +14,18 @@ struct TreeNode
 };
 
 
-TreeNode* solve(vi post_order,mp inorder_mp,int start,int end)
+TreeNode *solve(vi post_order, mp inorder_mp, int start, int end)
 {
-    if(start > end) return NULL;
+    if (start > end)
+        return NULL;
 
-     TreeNode* root = new TreeNode(post_order[end++]);
-     int mid = inorder_mp[root->val];
+    TreeNode *root = new TreeNode(post_order[end++]);
+    int mid = inorder_mp[root->val];
 
-     root->right = solve(post_order,inorder_mp,mid+1,end);
-     root->left = solve(post_order,inorder_mp,start,mid-1);
+    root->right = solve(post_order, inorder_mp, mid + 1, end);
+    root->left = solve(post_order, inorder_mp, start, mid - 1);
 
-     return root;
+    return root;
 }
 
 int main()
@@ -36,6 +37,6 @@ int main()
 
     for (int i = 0; i < inorder.size(); i++)
         inorder_mp[inorder[i]] = i;
-        
+
     return 0;
 }
