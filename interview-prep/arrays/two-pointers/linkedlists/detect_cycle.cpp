@@ -52,7 +52,8 @@ int main()
     head->next = new ListNode(90);
     head->next->next = new ListNode(100);
     head->next->next->next = new ListNode(90);
-
+    head->next->next->next = head;
+    
     cout << hasCycleImproved(head);
 
     return 0;
