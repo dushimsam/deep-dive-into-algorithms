@@ -9,56 +9,54 @@ struct ListNode
     ListNode(int val) : val(val){};
 };
 
-ListNode **createList(vector<int> nums)
+ListNode *mergeLists(ListNode *list1, ListNode *list2)
 {
 
-    ListNode **head;
-    *head = new ListNode(nums[0]);
-     ListNode *traverse;
+    if (list1 == NULL)
+        return list2;
+    if (list2 == NULL)
+        return list1;
 
-    for (int i = 1; i < nums.size(); i++)
+    ListNode *mergedLists;
+    mergedLists = list1;
+
+    if (list2->val < list1->val)
     {
-        traverse = new ListNode(nums[i]);
-        traverse->next = traverse->next;
+        mergedLists = list2;
+        list2 = list2->next;
     }
-   
-   (*head) -> next = traverse;
-
-    return head;
-}
-
-ListNode **mergeLists(ListNode *list1, ListNode *list2)
-{
-    vector<int> nums;
-
-    while (list1 != NULL && list2 != NULL)
+    else
     {
+        list1 = list1->next;
+    }
 
+    ListNode *curr = mergedLists;
+
+    while (list1 && list2)
+    {
         if (list1->val < list2->val)
         {
-            nums.push_back(list1->val);
+            curr->next = list1;
             list1 = list1->next;
         }
         else
         {
-            nums.push_back(list2->val);
+            curr->next = list2;
             list2 = list2->next;
         }
+        curr = curr->next;
     }
 
-    while (list1 != NULL)
+    if (list1)
     {
-        nums.push_back(list1->val);
-        list1 = list1->next;
+        curr->next = list1;
     }
-
-    while (list2 != NULL)
+    else if (list2)
     {
-        nums.push_back(list2->val);
-        list2 = list2->next;
+        curr->next = list2;
     }
 
-    return createList(nums);
+    return mergedLists;
 }
 
 void displayList(ListNode *head)
@@ -80,8 +78,8 @@ int main()
     list2->next = new ListNode(3);
     list2->next->next = new ListNode(4);
 
-    ListNode **mergedList = mergeLists(list1, list2);
+    ListNode *mergedList = mergeLists(list1, list2);
 
-    displayList(*mergedList);
+    displayList(mergedList);
     return 0;
 }
