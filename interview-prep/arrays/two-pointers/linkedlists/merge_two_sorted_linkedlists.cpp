@@ -11,7 +11,6 @@ struct ListNode
 
 
 
-
 ListNode *mergeLists(ListNode *list1, ListNode *list2)
 {
 
