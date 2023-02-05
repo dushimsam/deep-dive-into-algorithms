@@ -6,3 +6,13 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+
+*.class
+*.exe
+
+# Ignore `bin` dir
+bin/
+
+# Unignore all `.exe` in `bin` dir
+!*/bin/*.exe
+.idea
