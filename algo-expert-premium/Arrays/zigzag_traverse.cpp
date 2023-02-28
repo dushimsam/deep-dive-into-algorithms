@@ -1,63 +1,70 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
-typedef vector<vector<int>> vi;
 
-// Move diagonally upwards
-vector<int> moveUp(int row,int col,int maxRows,int maxCols,vi arr){
-   while(row > 1 && col < maxCols){
-         cout << arr[row-1][col-1] << endl;
-         row--;
-         col++;
-   }
-
-   if(row == 1 && col < maxCols){
-      col++;
-   } else if(row == 1 && col == maxCols){
-    row++;
-   }
-   return {row,col};
+bool isOutOfBounds(int width, int height, int row, int col)
+{
+    return row < 0 || col < 0 || row > height || col > width;
 }
+vector<int> zigzagTraverse(vector<vector<int>> array)
+{
 
-
-// Move diagonally downwards
-
-vector<int> moveDown(int row,int maxRows,int col,int maxCols,vi arr){
-    while(row < maxRows && col > 1){
-         cout << arr[row-1][col-1] << endl;
-         row++;
-         col--;
+    int width = array[0].size() - 1;
+    int height = array.size() - 1;
+    int row = 0;
+    int col = 0;
+    bool goingDown = true;
+    vector<int> res;
+    while (!isOutOfBounds(width, height, row, col))
+    {
+        res.push_back(array[row][col]);
+        if (goingDown)
+        {
+            if (col == 0 || row == height)
+            {
+                goingDown = false;
+                if (row == height)
+                {
+                    col++;
+                }
+                else
+                {
+                    row++;
+                }
+            }
+            else
+            {
+                col--;
+                row++;
+            }
+        }
+        else
+        {
+            if (row == 0 || col == width)
+            {
+                goingDown = true;
+                if (col == width)
+                {
+                    row++;
+                }
+                else
+                {
+                    col++;
+                }
+            }
+            else
+            {
+                row--;
+                col++;
+            }
+        }
     }
-  
-    if(col == 1 && row < maxRows){
-       row++;
-    }else if(row == maxRows && col == 1){
-        col++;
-    }
-   return {row,col};
+
+    return res;
 }
 
-int main(){
-    
-vi arr = {
-  {1, 3, 4, 10},
-  {2, 5, 9, 11},
-  {6, 8, 12, 15},
-  {7, 13, 14, 16}
-};
+int main()
+{
 
-int row = 1, col = 1;
-int maxRows = arr.size();
-int maxCols = arr[0].size();
-
-
-while(row < maxRows && col < maxCols){
-    cout << arr[row-1][col-1] << endl;
-    vector<int> res= moveDown(row,maxRows,col,maxCols,arr);
-    row = res[0];
-    col = res[1];
-    cout << arr[row-1][col-1] << endl;
-    res = moveUp(row,maxRows,col,maxCols,arr);
-}
     return 0;
 }
