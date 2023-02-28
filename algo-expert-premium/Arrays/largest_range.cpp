@@ -50,7 +50,7 @@ int main()
 {
   vector<int> arr = {1, 11, 3, 0, 15, 5, 2, 4, 10, 7, 12, 6};
   vector<int> res = largestRange(arr);
-  cout << res[1] << endl;
+  
 
   return 0;
 }
