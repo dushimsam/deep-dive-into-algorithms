@@ -25,7 +25,6 @@ vector<double> waterfallStreams(vector<vector<double>> array, int source)
           }
 
           // if there's block, traverse to the left and right - hunting for a free space to place a split water
-          // make the rowAbove point to the currentRow.
          double splitWaterVal = rowAbove[i] / 2;
           int rightIdx = i+1;
          while(rightIdx < rowAbove.size()){
@@ -46,8 +45,8 @@ vector<double> waterfallStreams(vector<vector<double>> array, int source)
            }
            leftIdx--;
          }
-
       }
+      // make the rowAbove point to the currentRow.
       rowAbove = currRow; 
      }
 
