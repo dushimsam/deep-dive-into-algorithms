@@ -1,46 +1,46 @@
-#include <iostream>
-#include <string>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
+typedef vector<int> vi;
 
-int main(int argc, char *argv[]) {
-  // このコードは標準入力と標準出力を用いたサンプルコードです。
-  // このコードは好きなように編集・削除してもらって構いません。
-  // ---
-  // This is a sample code to use stdin and stdout.
-  // Edit and remove this code as you like.
-  
-
-vector<int> a;
-int num;
-
-while (cin >> num)
+bool isPalindrome(string str)
 {
-   a.push_back(num);
+  int left = 0;
+  int right = str.length() - 1;
+  while (left <= right)
+  {
+    if (str[left] != str[right])
+      return false;
+    left++;
+    right--;
+  }
+  return true;
 }
-  
-int m = a.size()-1;
-int l = a[m];
-a.pop_back();
-
-int nw=1; int s=0;
-   for(int i=0;i<a.size();i++){
-     if(a[i]==0) continue;
-     s=a[i];
-      for(int j=i+1;j<a.size();i++){
-        if (s+a[j]==l){ nw+=1; a[j]==0; continue;}
-        else if( s+a[j]<l){
-          s=s+a[j];
-          a[j]=0;
-        }else if(s+a[j]>l){
-          nw+=1;
-          break;
-        }
+int palindromePartitioningMinCuts(string str)
+{
+  // Write your code here.
+  vi minCuts(str.length(), 0);
+  for (int i = str.length() - 2; i >= 0; i--)
+  {
+    for (int j = str.length() - 1; j >= i; j--)
+    {
+      string prefix = str.substr(i, j + 1 - i);
+      if (isPalindrome(prefix))
+      {
+        cout << " Prefix "<< prefix << endl;
+        minCuts[i] = j == str.length() - 1 ? 0 : minCuts[j + 1] + 1;
       }
-       }
- 
-  cout<< nw;
+    }
+  }
 
+  // for(int n:minCuts) cout << n << endl;
+  return minCuts[0];
+}
+
+int main()
+{
+
+  string str = "noonabbad";
+  int res = palindromePartitioningMinCuts(str);
+  // cout <<  << endl;
   return 0;
 }
