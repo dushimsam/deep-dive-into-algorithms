@@ -5,15 +5,6 @@
 > This respository consists of different tutorials and challenges which will equip you to  
 > kick off interview problems and competitive programming challenges.
 
----
-
-### Table of Contents
-Click on a header to move to a referenced location. 
-
-- [Description](#description)
-- [Author Info](#author-info)
-
----
 
 ## Description
 Getting into data structures and algorithms can be so tough for the first time. You may wonder where you can start.
