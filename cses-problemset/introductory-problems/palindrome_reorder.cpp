@@ -1,53 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
+typedef long long ll;
 
 int main()
 {
-    int freq[26], N;
-    string str;
-    cin >> str;
-    unordered_map<char, int> mp;
-    for (char ch : str)
-    {
-        mp[ch]++;
+  string S;
+  cin >> S;
+  unordered_map<char, int> mp;
+  for(char ch: S){
+    mp[ch]++;
+  }
+  
+  bool found = false;
+  char oddChar;
+  for(auto val:mp){
+    if(val.second&1){
+      if(!found){
+        oddChar = val.first;
+        found = true;
+      }else{
+        cout<<"NO SOLUTION\n";
+        return 0;
+      }
     }
-
-    // count the odds
-    int oddCount = 0;
-    char oddChar;
-    for (auto e : mp)
-    {
-        if (e.second % 2 != 0)
-        {
-            oddCount++;
-            oddChar = e.first;
-        }
+  }
+  string res;
+  for(auto val:mp){
+    for(int i = 1; i <= val.second/2; i++){
+      res+=val.first;
     }
-
-    if (oddCount > 1)
-    {
-        cout << "NO SOLUTION\n";
-    }
-
-    // initialize the first even part
-    string half;
-    for (auto e : mp)
-    {
-        for(int i = 1; i <= e.second/2; i++)
-          half += e.first;
-    }
-    
-    // add the odd character in the middle
-    string res = half;
-    if (oddCount == 1)
-    {
-        res += oddChar;
-    }
-
-    // reverse the first apart to append it in making the total string
-    reverse(half.begin(), half.end());
-    res += half;
-
-    cout << res << endl;
-    return 0;
+  }
+  string temp = res;
+  if(found)
+   res+=oddChar;
+   
+  reverse(temp.begin(), temp.end());
+  res += temp;
+  cout<< res << "\n";
+  return 0;
 }
